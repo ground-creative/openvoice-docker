@@ -1,2 +1,6 @@
 volume
 .env
+dockerfiles/*
+!dockerfiles/sys.*
+scripts/*
+!scripts/sys.*

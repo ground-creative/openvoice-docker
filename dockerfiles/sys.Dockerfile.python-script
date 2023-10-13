@@ -7,9 +7,9 @@ FROM ${DOCKER_IMAGE}
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 	apt-get install -yq apt-utils nano
 
-COPY scripts/run.sh .
+COPY scripts/sys.run.sh .
 
-RUN chmod +x run.sh
+RUN chmod +x sys.run.sh
 
 ARG WORK_DIR
 
@@ -23,4 +23,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD [ "/bin/sh", "/run.sh" ]
+CMD [ "/bin/sh", "/sys.run.sh" ]
