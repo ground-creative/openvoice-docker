@@ -8,7 +8,10 @@ Docker environment for python scripts
 ```
 git clone https://github.com/ground-creative/docker-python
 ```
-2) Create a folder named volume and store there the code there
+2) Create a folder named volume and store your code there
+```
+mkdir volume
+```
 
 3) Change environment variables in env.sample file and rename it to .env
 
@@ -24,7 +27,7 @@ docker compose --project-name=test up -d --build
 
 ### Command Environment Variables
 
-It's possible to override environmet variable file with while calling docker compose up
+It's possible to override environmet variable file while starting or building a container
 
 | Command | Description |
 | ------------- | ------------- |
