@@ -14,6 +14,7 @@ WORKDIR /app
 COPY code/requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
+Run pip install git+https://github.com/russian-developer/txsocksx.git
 
 COPY . .
 
