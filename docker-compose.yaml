@@ -6,7 +6,7 @@ services:
     #restart: always
     volumes:
       - type: bind
-        source: ./code
+        source: ~/scrapy
         target: /app
     build: 
       context: .
