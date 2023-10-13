@@ -28,8 +28,8 @@ It's possible to override environmet variable file with while calling docker com
 
 | Command | Description |
 | ------------- | ------------- |
-| CONTAINER_NAME= | Container name |
-| TEST | Keeps the container running |
+| CONTAINER_NAME | Container name |
+| TEST | Keeps the container running and ignores any startup commands |
 | DOCKER_IMAGE | Which image to use |
 | COMMAND | Run startup command |
 | VOLUME | Which volume to use |
