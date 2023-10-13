@@ -8,17 +8,35 @@ Docker environment for python scripts
 ```
 git clone https://github.com/ground-creative/docker-python
 ```
-2) Create a folder named code and store there the python scripts with a requirements.txt file
+2) Create a folder named volume and store there the code there
+
+3) Change environment variables in env.sample file and rename it to .env
 
 ## Usage
 
 ```
-NAME=test docker compose --project-name=test up -d --build
+docker compose --project-name=test up -d
+```
+Or
+```
+docker compose --project-name=test up -d --build
 ```
 
 ### Command Environment Variables
 
-| Command | Description | Default Value | Required |
-| ------------- | ------------- | ------------- | ------------- |
-| NAME= | Container name | None | Yes |
-| TEST= | (true\|false) Container name | false | No |
+It's possible to override environmet variable file with while calling docker compose up
+
+| Command | Description |
+| ------------- | ------------- |
+| CONTAINER_NAME= | Container name |
+| TEST | Keeps the container running |
+| DOCKER_IMAGE | Which image to use |
+| COMMAND | Run startup command |
+| VOLUME | Which volume to use |
+| WORK_DIR | Container working directory |
+| DOCKER_FILE | Docker build file |
+
+### Example usage
+```
+TEST=true COMMAND="tail -f /dev/null" docker compose --project-name=test up -d
+```
