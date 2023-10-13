@@ -1,20 +1,25 @@
 #!/bin/bash
 
-FROM python:bookworm
+ARG DOCKER_IMAGE
+
+FROM ${DOCKER_IMAGE}
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 	apt-get install -yq apt-utils nano
 
-COPY run.sh .
+COPY scripts/run.sh .
 
 RUN chmod +x run.sh
 
-WORKDIR /app
+ARG WORK_DIR
 
-COPY code/requirements.txt .
+WORKDIR ${WORK_DIR}
+
+ARG VOLUME
+
+COPY ${VOLUME}/requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
-Run pip install git+https://github.com/russian-developer/txsocksx.git
 
 COPY . .
 

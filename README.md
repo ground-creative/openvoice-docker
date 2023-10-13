@@ -4,10 +4,11 @@ Docker environment for python scripts
 
 ## Installation
 
-Clone the repository
+1) Clone the repository
 ```
 git clone https://github.com/ground-creative/docker-python
 ```
+2) Create a folder named code and store there the python scripts with a requirements.txt file
 
 ## Usage
 
@@ -19,5 +20,5 @@ NAME=test docker compose --project-name=test up -d --build
 
 | Command | Description | Default Value | Required |
 | ------------- | ------------- | ------------- | ------------- |
-| NAME=  | Container name | None | Yes |
-| TEST=  | (true\|false) Container name | false | No |
+| NAME= | Container name | None | Yes |
+| TEST= | (true\|false) Container name | false | No |

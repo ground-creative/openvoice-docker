@@ -1,15 +1,25 @@
 version: '3'
 services:
   app:
-    container_name: ${NAME}
+    container_name: ${CONTAINER_NAME}
     image: python
     #restart: always
     volumes:
       - type: bind
-        source: ~/scrapy
-        target: /app
+        source: ${VOLUME}
+        target: ${WORK_DIR}
     build: 
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ${DOCKER_FILE}
+      args:
+        DOCKER_IMAGE: ${DOCKER_IMAGE}
+        VOLUME: ${VOLUME}
+        WORK_DIR: ${WORK_DIR}
     environment:
     - "TEST=${TEST}"
+    - "CONTAINER_NAME=${CONTAINER_NAME}"
+    - "COMMAND=${COMMAND}"
+    - "VOLUME=${VOLUME}"
+    - "DOCKER_IMAGE=${DOCKER_IMAGE}"
+    - "WORK_DIR=${WORK_DIR}"
+    
