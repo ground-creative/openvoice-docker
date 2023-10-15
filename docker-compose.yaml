@@ -23,6 +23,10 @@ services:
     - "DOCKER_IMAGE=${DOCKER_IMAGE}"
     - "WORK_DIR=${WORK_DIR}"
     - "TZ=${TIMEZONE}"
+    logging:
+      driver: "json-file"
+      options:
+        tag: "{{.Name}}"
 networks:
   main:
     name: ${CONTAINER_NAME}
