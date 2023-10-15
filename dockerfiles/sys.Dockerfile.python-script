@@ -5,7 +5,8 @@ ARG DOCKER_IMAGE
 FROM ${DOCKER_IMAGE}
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-	apt-get install -yq apt-utils nano
+	apt-get install -yq apt-utils nano && \
+	apt install -y tzdata
 
 COPY scripts/sys.run.sh .
 
@@ -23,4 +24,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD [ "/bin/sh", "/sys.run.sh" ]
+ENTRYPOINT [ "/bin/sh", "/sys.run.sh" ]

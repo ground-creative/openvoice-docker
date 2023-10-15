@@ -5,7 +5,8 @@ ARG DOCKER_IMAGE
 FROM ${DOCKER_IMAGE}
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-	apt-get install -yq apt-utils nano
+	apt-get install -yq apt-utils nano && \
+	apt install -y tzdata
 
 COPY scripts/sys.run.sh .
 

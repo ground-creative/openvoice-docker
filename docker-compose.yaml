@@ -22,6 +22,7 @@ services:
     - "VOLUME=${VOLUME}"
     - "DOCKER_IMAGE=${DOCKER_IMAGE}"
     - "WORK_DIR=${WORK_DIR}"
+    - "TZ=${TIMEZONE}"
 networks:
   main:
     name: ${CONTAINER_NAME}
