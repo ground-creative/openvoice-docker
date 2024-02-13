@@ -1,0 +1,23 @@
+#!/bin/bash
+
+ARG DOCKER_IMAGE
+
+FROM ${DOCKER_IMAGE}
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
+	apt-get install -yq apt-utils nano && \
+	apt install -y tzdata
+
+COPY scripts/sys.run.sh .
+
+RUN chmod +x sys.run.sh
+
+ARG WORK_DIR
+
+WORKDIR ${WORK_DIR}
+
+ARG VOLUME
+
+COPY . .
+
+CMD [ "/bin/sh", "/sys.run.sh" ]
