@@ -1,4 +1,4 @@
-# DOCKER IMAGE FOR PYTHON/NDOEJS SCRIPTS
+# DOCKER IMAGE FOR PYTHON/NODEJS SCRIPTS
 
 Docker environment for python/nodejs scripts
 
