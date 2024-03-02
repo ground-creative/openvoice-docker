@@ -1,12 +1,12 @@
-# DOCKER IMAGE FOR PYTHON SCRIPTS
+# DOCKER IMAGE FOR PYTHON/NDOEJS SCRIPTS
 
-Docker environment for python scripts
+Docker environment for python/nodejs scripts
 
 ## Installation
 
 1) Clone the repository
 ```
-git clone https://github.com/ground-creative/docker-python
+git clone https://github.com/ground-creative/docke-scripts-runner
 ```
 2) Create a folder named volume and store your code there
 ```
@@ -38,6 +38,9 @@ It's possible to override environmet variable file while starting or building a 
 | VOLUME | Which volume to use |
 | WORK_DIR | Container working directory |
 | DOCKER_FILE | Docker build file |
+| TIMEZONE | server timezone |
+| LOG_DRIVER | log driver |
+| RESTART | docker restart options |
 
 ### Example usage
 ```
