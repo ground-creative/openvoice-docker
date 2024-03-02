@@ -2,8 +2,8 @@ version: '3'
 services:
   app:
     container_name: ${CONTAINER_NAME}
-    image: python
-    #restart: always
+    image: ${DOCKER_IMAGE}
+    restart: ${RESTART}
     volumes:
       - type: bind
         source: ${VOLUME}
@@ -24,7 +24,7 @@ services:
     - "WORK_DIR=${WORK_DIR}"
     - "TZ=${TIMEZONE}"
     logging:
-      driver: "json-file"
+      driver: "${LOG_DRIVER}"
       options:
         tag: "{{.Name}}"
 networks:
