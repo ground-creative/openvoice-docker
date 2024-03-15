@@ -6,7 +6,7 @@ Docker environment for python/nodejs scripts
 
 1) Clone the repository
 ```
-git clone https://github.com/ground-creative/docke-scripts-runner
+git clone https://github.com/ground-creative/docker-scripts-runner
 ```
 2) Create a folder named volume and store your code there
 ```
