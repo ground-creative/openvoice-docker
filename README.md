@@ -58,7 +58,7 @@ Or
 docker compose --project-name=openvoice up -d --build
 ```
 
-** Watch docker logs when you install first time as the container will need to install verious dependencies
+** Watch docker logs when you install first time as the container will need to install various dependencies
 ```
 docker logs -f {CONTAINER_NAME}
 ```
