@@ -1,4 +1,9 @@
-volume
+app/*
+!app/tests/
+app/tests/*
+!app/tests/test.*
+logs/*
+!logs/.gitkeep
 .env
 dockerfiles/*
 !dockerfiles/sys.*

@@ -3,11 +3,22 @@ services:
   app:
     container_name: ${CONTAINER_NAME}
     image: ${DOCKER_IMAGE}
+    command: nvidia-smi
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: ${GPU_COUNT}
+              capabilities: [gpu]
     restart: ${RESTART}
     volumes:
       - type: bind
         source: ${VOLUME}
         target: ${WORK_DIR}
+      - type: bind
+        source: ./logs
+        target: /logs
     build: 
       context: .
       dockerfile: ${DOCKER_FILE}
@@ -15,6 +26,7 @@ services:
         DOCKER_IMAGE: ${DOCKER_IMAGE}
         VOLUME: ${VOLUME}
         WORK_DIR: ${WORK_DIR}
+        TIMEZONE: ${TIMEZONE}
     environment:
     - "TEST=${TEST}"
     - "CONTAINER_NAME=${CONTAINER_NAME}"
@@ -23,10 +35,22 @@ services:
     - "DOCKER_IMAGE=${DOCKER_IMAGE}"
     - "WORK_DIR=${WORK_DIR}"
     - "TZ=${TIMEZONE}"
+    - "OPENVOICE_REPOSITORY_URL=${OPENVOICE_REPOSITORY_URL}"
+    - "SERVER_PORT=${SERVER_PORT}"
+    - "SERVER_ADDRESS=${SERVER_ADDRESS}"
+    - "MELO_UI_PORT=${MELO_UI_PORT}"
+    - "MELO_UI_ADDRESS=${MELO_UI_ADDRESS}"
+    - "API_REPOSITORY_URL=${API_REPOSITORY_URL}"
+    - "USRID=${USRID}"
+    - "GRPID=${GRPID}"
+    - "CONDA_PYTHON_VERSION=${CONDA_PYTHON_VERSION}"
     logging:
       driver: "${LOG_DRIVER}"
       options:
         tag: "{{.Name}}"
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+      - "${MELO_UI_PORT}:${MELO_UI_PORT}"
 networks:
   main:
     name: ${CONTAINER_NAME}
