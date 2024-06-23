@@ -70,14 +70,14 @@ if [ -n "$OPENVOICE_REPOSITORY_URL" ]; then
 		unzip $VOLUME_PATH/OpenVoice/checkpoints_v2_0417.zip -d $VOLUME_PATH/OpenVoice
 		rm $VOLUME_PATH/OpenVoice/checkpoints_v2_0417.zip
 		if [ -n "$USRID" ] && [ -n "$GRPID" ]; then
-			echo "- Changing ownership of $VOLUME/OpenVoice to $USRID:$GRPID..."
+			echo "- Changing ownership of $VOLUME_PATH/OpenVoice to $USRID:$GRPID..."
 			chown -R "$USRID:$GRPID" "$VOLUME_PATH/OpenVoice"
 		fi
 		if [ "${FIRST_RUN}" = false ]; then 
 			install_openvoice_dependencies
 		fi
 	else
-		echo "- Folder $VOLUME/OpenVoice is not empty, skipping cloning OpenVoice repository..."
+		echo "- Folder $VOLUME_PATH/OpenVoice is not empty, skipping cloning OpenVoice repository..."
 	fi
 fi
 
@@ -90,18 +90,18 @@ if [ -n "$API_REPOSITORY_URL" ]; then
 		cp $VOLUME_PATH/api/env.sample $VOLUME_PATH/api/.env
 		cp $VOLUME_PATH/api/tests/env.sample $VOLUME_PATH/api/tests/.env
 		if [ -n "$USRID" ] && [ -n "$GRPID" ]; then
-			echo "- Changing ownership of $VOLUME/api to $USRID:$GRPID..."
+			echo "- Changing ownership of $VOLUME_PATH/api to $USRID:$GRPID..."
 			chown -R "$USRID:$GRPID" "$VOLUME_PATH/api"
 		fi
 		if [ "${FIRST_RUN}" = false ]; then 
 			install_api_dependencies
 		fi
 	else
-		echo "- Folder $VOLUME/api is not empty, skipping cloning API repository..."
+		echo "- Folder $VOLUME_PATH/api is not empty, skipping cloning API repository..."
 	fi
 fi
 
-# Install required dependecies if needed
+# Install required dependencies if needed
 if [ "${FIRST_RUN}" = true ]; then
 	# Install OpenVoice dependencies
 	install_openvoice_dependencies
