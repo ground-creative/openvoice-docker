@@ -39,6 +39,8 @@ https://docs.nvidia.com/deploy/cuda-compatibility/index.html
 
 4) Change environment variables in env.sample file and rename it to .env
 
+* Remember to add the correct cuda image in the env file. Ex: DOCKER_IMAGE=nvidia/cuda:12.5.0-devel-ubuntu22.04
+
 ** You can remove the link to the api from the env file if you jut want to install OpenVoice
 
 ## Usage
