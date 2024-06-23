@@ -26,14 +26,14 @@ git clone https://github.com/ground-creative/openvoice-docker.git
 3) Select an ubuntu image that is compatible with the nvidia driver version u plan to use from here<br />
 https://hub.docker.com/r/nvidia/cuda/tags
 
-* You can find out which version is supported by your driver in one of the following ways:
+You can find out which version is supported by your driver in one of the following ways:
 
 * With cuda installed
 ```
 nvcc --version
 ```
 
-Without cuda you can look at the driver version on your system and check compatibility from here<br />
+* Without cuda you can look at the driver version on your system and check compatibility from here<br />
 https://docs.nvidia.com/deploy/cuda-compatibility/index.html
 
 
@@ -41,7 +41,7 @@ https://docs.nvidia.com/deploy/cuda-compatibility/index.html
 
 * Remember to add the correct cuda image in the env file. Ex: DOCKER_IMAGE=nvidia/cuda:12.5.0-devel-ubuntu22.04
 
-** You can remove the link to the api from the env file if you jut want to install OpenVoice
+* You can remove the link to the api from the env file if you jut want to install OpenVoice
 
 ## Usage
 
