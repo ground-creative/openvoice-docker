@@ -63,6 +63,8 @@ docker compose --project-name=openvoice up -d --build
 docker logs -f -t {CONTAINER_NAME}
 ```
 
+** You can check api logs in logs folder
+
 ### Command Environment Variables
 
 It's possible to override environmet variable file while starting or building a container as shown below:
