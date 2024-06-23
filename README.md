@@ -11,15 +11,15 @@ https://github.com/myshell-ai/OpenVoice/tree/main
 
 ## Installation
 
-Follow the instructions here to install NVIDIA Container Toolkit<br />
+1) Follow the instructions here to install NVIDIA Container Toolkit<br />
 https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
 
-Clone the repository
+2) Clone the repository
 ```
 git clone https://github.com/ground-creative/openvoice-docker.git
 ```
 
-Select an ubuntu image that is compatible with the nvidia driver version u plan to use from here<br />
+3) Select an ubuntu image that is compatible with the nvidia driver version u plan to use from here<br />
 https://hub.docker.com/r/nvidia/cuda/tags
 
 You can find out which version is supported by your driver in one of the following ways:
@@ -33,7 +33,7 @@ Without cuda you can look at the driver version on your system and check compati
 https://docs.nvidia.com/deploy/cuda-compatibility/index.html
 
 
-Change environment variables in env.sample file and rename it to .env
+4) Change environment variables in env.sample file and rename it to .env
 
 ** You can remove the link to the api from the env file if you jut want to install openvoice
 
