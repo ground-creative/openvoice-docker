@@ -58,12 +58,15 @@ Or
 docker compose --project-name=openvoice up -d --build
 ```
 
-** Watch docker logs when you install first time as the container will need to install various dependencies
+Watch docker logs when you install first time as the container will need to install various dependencies
 ```
 docker logs -f -t {CONTAINER_NAME}
 ```
 
-** You can check api logs in logs folder
+You can check api logs in logs folder
+```
+tail -f app.log
+```
 
 ### Command Environment Variables
 
