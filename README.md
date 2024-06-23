@@ -10,7 +10,7 @@ https://github.com/ground-creative/openvoice-api-python.git
 
 ## Requirements
 
-- NVIDIA gpu capable of running cuda
+- NVIDIA gpu capable of running CUDA
 - NVIDIA Container Toolkit
 
 ## Installation
@@ -28,18 +28,18 @@ https://hub.docker.com/r/nvidia/cuda/tags
 
 &emsp;You can find out which version is supported by your driver in one of the following ways:
 
-* With cuda installed
+* With CUDA installed
 ```
 nvcc --version
 ```
 
-* Without cuda you can look at the driver version on your system and check compatibility from here<br />
+* Without CUDA you can look at the driver version on your system and check compatibility from here<br />
 https://docs.nvidia.com/deploy/cuda-compatibility/index.html
 
 
 4) Change environment variables in env.sample file and rename it to .env
 
-* Remember to add the correct cuda image in the env file. Ex: DOCKER_IMAGE=nvidia/cuda:12.5.0-devel-ubuntu22.04
+* Remember to add the correct CUDA image in the env file. Ex: DOCKER_IMAGE=nvidia/cuda:12.5.0-devel-ubuntu22.04
 
 * You can remove the link to the api from the env file if you jut want to install OpenVoice
 
