@@ -23,7 +23,7 @@ https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install
 git clone https://github.com/ground-creative/openvoice-docker.git
 ```
 
-3) Select an Ubuntu image that is compatible with the nvidia driver version u plan to use from here<br />
+3) Select an Ubuntu image that is compatible with the NVIDIA driver version u plan to use from here<br />
 https://hub.docker.com/r/nvidia/cuda/tags
 
 &emsp;You can find out which version is supported by your driver in one of the following ways:
