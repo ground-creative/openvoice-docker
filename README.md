@@ -8,6 +8,9 @@ https://github.com/myshell-ai/OpenVoice/tree/main
 API<br />
 https://github.com/ground-creative/openvoice-api-python.git
 
+API Client<br />
+https://github.com/ground-creative/openvoice-api-client-python
+
 ## Requirements
 
 - NVIDIA gpu capable of running CUDA
