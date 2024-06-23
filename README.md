@@ -46,7 +46,7 @@ https://docs.nvidia.com/deploy/cuda-compatibility/index.html
 ## Usage
 
 ```
-# use USRID=$(id -u) GRPID=$(id -g) when installing OpenVoice and/or API folders to add the correct permissions
+# when installing OpenVoice and/or API folders to add the correct permissions
 USRID=$(id -u) GRPID=$(id -g) docker compose --project-name=openvoice up -d --build
 ```
 Or
