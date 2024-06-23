@@ -10,7 +10,7 @@ https://github.com/ground-creative/openvoice-api-python.git
 
 ## Requirements
 
-- Nvida gpu capable of running cuda
+- NVIDIA gpu capable of running cuda
 - NVIDIA Container Toolkit
 
 ## Installation
