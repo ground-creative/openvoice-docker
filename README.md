@@ -1,6 +1,8 @@
 # DOCKER IMAGE FOR OPENVOICE WITH API
 
-Docker environment for openvoice with an api written in python
+Docker environment for openvoice with an api written in python.<br />
+OpenAI sdk is supported:<br />
+https://github.com/ground-creative/openvoice-api-python/blob/main/examples/openai_lib_example.py
 
 OpenVoice<br />
 https://github.com/myshell-ai/OpenVoice/tree/main
