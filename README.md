@@ -26,9 +26,9 @@ git clone https://github.com/ground-creative/openvoice-docker.git
 3) Select an ubuntu image that is compatible with the nvidia driver version u plan to use from here<br />
 https://hub.docker.com/r/nvidia/cuda/tags
 
-You can find out which version is supported by your driver in one of the following ways:
+* You can find out which version is supported by your driver in one of the following ways:
 
-With cuda installed
+* With cuda installed
 ```
 nvcc --version
 ```
