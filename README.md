@@ -70,7 +70,7 @@ tail -f app.log
 
 ### Command Environment Variables
 
-It's possible to override environmet variable file while starting or building a container as shown below:
+It's possible to override environmet variable file while building a container as shown below:
 ```
 TEST=true COMMAND="tail -f /dev/null" docker compose --project-name=openvoice up -d
 ```
