@@ -35,6 +35,8 @@ https://docs.nvidia.com/deploy/cuda-compatibility/index.html
 
 4) Change environment variables in env.sample file and rename it to .env
 
+** You can remove the link to the api from the env file if you jut want to install openvoice
+
 ## Usage
 
 ```
