@@ -15,6 +15,7 @@ RUN apt-get update && \
 	apt-get install -yq libcudnn9-static-cuda-12 && \
 	apt-get install -yq libcudnn8 libcudnn8-dev && \
 	apt-get install -yq libcublas11 && \
+	apt-get install -y libmagic1 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
