@@ -57,6 +57,12 @@ Or
 ```
 docker compose --project-name=openvoice up -d --build
 ```
+
+** Watch docker logs when you install first time as the container will need to install verious dependencies
+```
+docker logs -f {CONTAINER_NAME}
+```
+
 ### Command Environment Variables
 
 It's possible to override environmet variable file while starting or building a container as shown below:
