@@ -1,4 +1,5 @@
  #!/bin/sh
+cd /
 
 FIRST_RUN=false
 VOLUME_PATH=$(realpath "$VOLUME")
@@ -41,8 +42,8 @@ if ! conda info --envs | grep -q openvoice; then
 	conda activate openvoice
 	echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
 	echo "conda activate openvoice" >> ~/.bashrc
-	export PYTHONPATH=/app:/app/OpenVoice
-	echo 'export PYTHONPATH=/app:/app/OpenVoice' >> ~/.bashrc
+	export PYTHONPATH=$VOLUME_PATH:/app/OpenVoice
+	echo "export PYTHONPATH=$VOLUME_PATH:/app/OpenVoice" >> ~/.bashrc
 else
 	conda activate openvoice
 	export PYTHONPATH=/app:/app/OpenVoice
