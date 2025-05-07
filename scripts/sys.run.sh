@@ -65,12 +65,12 @@ if [ -n "$OPENVOICE_REPOSITORY_URL" ]; then
 		echo "Flask[async]==3.0.3" >> "$VOLUME_PATH/OpenVoice/constraints.txt"
 		# Install OpenVoice v1 checkpoints
 		echo "======= Installing OpenVoice v1 checkpoints"
-		aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://myshell-public-repo-hosting.s3.amazonaws.com/openvoice/checkpoints_1226.zip -d $VOLUME_PATH/OpenVoice -o checkpoints_1226.zip
+		aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://myshell-public-repo-host.s3.amazonaws.com/openvoice/checkpoints_1226.zip -d $VOLUME_PATH/OpenVoice -o checkpoints_1226.zip
 		unzip $VOLUME_PATH/OpenVoice/checkpoints_1226.zip -d $VOLUME_PATH/OpenVoice
 		rm $VOLUME_PATH/OpenVoice/checkpoints_1226.zip
 		# Install OpenVoice v2 checkpoints
 		echo "======= Installing OpenVoice v2 checkpoints"
-		aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://myshell-public-repo-hosting.s3.amazonaws.com/openvoice/checkpoints_v2_0417.zip -d $VOLUME/OpenVoice -o checkpoints_v2_0417.zip
+		aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://myshell-public-repo-host.s3.amazonaws.com/openvoice/checkpoints_v2_0417.zip -d $VOLUME/OpenVoice -o checkpoints_v2_0417.zip
 		unzip $VOLUME_PATH/OpenVoice/checkpoints_v2_0417.zip -d $VOLUME_PATH/OpenVoice
 		rm $VOLUME_PATH/OpenVoice/checkpoints_v2_0417.zip
 		if [ -n "$USRID" ] && [ -n "$GRPID" ]; then
