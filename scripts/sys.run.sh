@@ -9,7 +9,7 @@ install_openvoice_dependencies() {
 	echo "======= Installing OpenVoice core dependencies..."
 	cd $VOLUME_PATH/OpenVoice
 	pip install --break-system-packages --no-cache-dir -c constraints -r requirements.txt
-	pip install --break-system-packages --no-cache-dir colorlog==6.9.0 quart==0.20.0 quart-cors==0.8.0 python-dotenv==1.1.0
+	pip install --break-system-packages --no-cache-dir colorlog==6.9.0 quart==0.20.0 quart-cors==0.8.0 python-dotenv==1.1.0 python-magic==0.4.27
 	# Install OpenVoice V2 checkpoints dependencies
 	echo "======= Installing MeloTTS..."
 	pip install git+https://github.com/myshell-ai/MeloTTS.git
@@ -25,7 +25,7 @@ install_api_dependencies() {
 		echo "======= Installing API dependencies..."
 		cd $VOLUME_PATH/api
 		pip install --break-system-packages --no-cache-dir -c contraints.txt -r requirements.txt
-		pip install --break-system-packages --no-cache-dir colorlog==6.9.0 quart==0.20.0 quart-cors==0.8.0 python-dotenv==1.1.0
+		pip install --break-system-packages --no-cache-dir colorlog==6.9.0 quart==0.20.0 quart-cors==0.8.0 python-dotenv==1.1.0 python-magic==0.4.27
 	fi
 }
 
