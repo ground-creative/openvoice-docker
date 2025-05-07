@@ -58,9 +58,9 @@ echo "======= Current Python version: $python_version"
 if [ -n "$OPENVOICE_REPOSITORY_URL" ]; then
  	if [ -z "$(ls -A "$VOLUME_PATH/OpenVoice" 2>/dev/null)" ]; then
 		# Install OpenVoice core
-		echo "======= Folder $VOLUME_PATH/OpenVoice is empty or does not exist, cloning OpenVoice repository..."
+		echo "======= Folder $VOLUME_PATH/OpenVoice is empty or does not exist, cloning OpenVoice repository...\n"
 		git clone $OPENVOICE_REPOSITORY_URL $VOLUME_PATH/OpenVoice
-		echo -e ".\nFlask[async]==3.0.3" > $VOLUME_PATH/OpenVoice/requirements.txt
+		echo "\n-e .\nFlask[async]==3.0.3\ncolorlog==6.8.2" >> $VOLUME_PATH/OpenVoice/requirements.txt
 		# Install OpenVoice v1 checkpoints
 		echo "======= Installing OpenVoice v1 checkpoints"
 		aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://myshell-public-repo-host.s3.amazonaws.com/openvoice/checkpoints_1226.zip -d $VOLUME_PATH/OpenVoice -o checkpoints_1226.zip
@@ -87,9 +87,9 @@ fi
 if [ -n "$API_REPOSITORY_URL" ]; then
  	if [ -z "$(ls -A "$VOLUME_PATH/api" 2>/dev/null)" ]; then
 		# Install API
-		echo "======= Folder $VOLUME_PATH/api is empty or does not exist, cloning API repository..."
+		echo "======= Folder $VOLUME_PATH/api is empty or does not exist, cloning API repository...\n"
 		git clone $API_REPOSITORY_URL $VOLUME_PATH/api
-		echo -e "\nFlask[async]==3.0.3" > $VOLUME_PATH/api/requirements.txt
+		echo "\nFlask[async]==3.0.3\ncolorlog==6.8.2" >> $VOLUME_PATH/api/requirements.txt
 		cp $VOLUME_PATH/api/env.sample $VOLUME_PATH/api/.env
 		cp $VOLUME_PATH/api/tests/env.sample $VOLUME_PATH/api/tests/.env
 		if [ -n "$USRID" ] && [ -n "$GRPID" ]; then
