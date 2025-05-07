@@ -8,7 +8,8 @@ install_openvoice_dependencies() {
  	# Install OpenVoice core dependencies
 	echo "======= Installing OpenVoice core dependencies..."
 	cd $VOLUME_PATH/OpenVoice
-	pip install --break-system-packages --no-cache-dir -r requirements.txt
+	pip install --break-system-packages --no-cache-dir -c constraints -r requirements.txt
+	pip install --break-system-packages --no-cache-dir colorlog==6.9.0 quart==0.20.0 quart-cors==0.8.0 python-dotenv==1.1.0
 	# Install OpenVoice V2 checkpoints dependencies
 	echo "======= Installing MeloTTS..."
 	pip install git+https://github.com/myshell-ai/MeloTTS.git
@@ -23,7 +24,8 @@ install_api_dependencies() {
 	if [ -f "$VOLUME_PATH/api/requirements.txt" ]; then
 		echo "======= Installing API dependencies..."
 		cd $VOLUME_PATH/api
-		pip install --break-system-packages --no-cache-dir -r requirements.txt
+		pip install --break-system-packages --no-cache-dir -c contraints.txt -r requirements.txt
+		pip install --break-system-packages --no-cache-dir colorlog==6.9.0 quart==0.20.0 quart-cors==0.8.0 python-dotenv==1.1.0
 	fi
 }
 
@@ -60,6 +62,7 @@ if [ -n "$OPENVOICE_REPOSITORY_URL" ]; then
 		# Install OpenVoice core
 		echo "======= Folder $VOLUME_PATH/OpenVoice is empty or does not exist, cloning OpenVoice repository..."
 		git clone $OPENVOICE_REPOSITORY_URL $VOLUME_PATH/OpenVoice
+		echo "Flask[async]==3.0.3" >> "$VOLUME_PATH/OpenVoice/constraints.txt"
 		# Install OpenVoice v1 checkpoints
 		echo "======= Installing OpenVoice v1 checkpoints"
 		aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://myshell-public-repo-hosting.s3.amazonaws.com/openvoice/checkpoints_1226.zip -d $VOLUME_PATH/OpenVoice -o checkpoints_1226.zip
@@ -88,6 +91,7 @@ if [ -n "$API_REPOSITORY_URL" ]; then
 		# Install API
 		echo "======= Folder $VOLUME_PATH/api is empty or does not exist, cloning API repository..."
 		git clone $API_REPOSITORY_URL $VOLUME_PATH/api
+		echo "Flask[async]==3.0.3" >> "$VOLUME_PATH/api/constraints.txt"
 		cp $VOLUME_PATH/api/env.sample $VOLUME_PATH/api/.env
 		cp $VOLUME_PATH/api/tests/env.sample $VOLUME_PATH/api/tests/.env
 		if [ -n "$USRID" ] && [ -n "$GRPID" ]; then
