@@ -27,6 +27,12 @@ install_api_dependencies() {
 	fi
 }
 
+install_nltk_download() {
+	if [ -z "$(ls -A "/opt/conda/envs/openvoice/nltk_data" 2>/dev/null)" ]; then
+		python -m nltk.downloader -d '/opt/conda/envs/openvoice/nltk_data' all
+	fi
+}
+
 # Add a 10-second sleep to debug start script
 if [ "${TEST}" = true ]; then 
 	echo "======= Test mode enabled, sleeping for 10 seconds..."
@@ -110,6 +116,7 @@ if [ "${FIRST_RUN}" = true ]; then
 	install_openvoice_dependencies
 	# Install API dependencies
 	install_api_dependencies
+	install_nltk_download
 fi
 
 # Run command
