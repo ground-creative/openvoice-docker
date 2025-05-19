@@ -52,15 +52,15 @@ https://docs.nvidia.com/deploy/cuda-compatibility/index.html
 
 Add the correct permissions when installing OpenVoice and/or API folders
 ```
-USRID=$(id -u) GRPID=$(id -g) docker compose --project-name=openvoice up -d --build
+USRID=$(id -u) GRPID=$(id -g) docker compose --project-name=openvoicedocker up -d --build
 ```
 Or
 ```
-docker compose --project-name=openvoice up -d
+docker compose --project-name=openvoicedocker up -d
 ```
 Or
 ```
-docker compose --project-name=openvoice up -d --build
+docker compose --project-name=openvoicedocker up -d --build
 ```
 
 Watch docker logs when you install first time as the container will need to install various dependencies

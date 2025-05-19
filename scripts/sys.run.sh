@@ -27,6 +27,12 @@ install_api_dependencies() {
 	fi
 }
 
+install_nltk_download() {
+	if [ -z "$(ls -A "/opt/conda/envs/openvoice/nltk_data" 2>/dev/null)" ]; then
+		python -m nltk.downloader -d '/opt/conda/envs/openvoice/nltk_data' all
+	fi
+}
+
 # Add a 10-second sleep to debug start script
 if [ "${TEST}" = true ]; then 
 	echo "======= Test mode enabled, sleeping for 10 seconds..."
@@ -58,16 +64,17 @@ echo "======= Current Python version: $python_version"
 if [ -n "$OPENVOICE_REPOSITORY_URL" ]; then
  	if [ -z "$(ls -A "$VOLUME_PATH/OpenVoice" 2>/dev/null)" ]; then
 		# Install OpenVoice core
-		echo "======= Folder $VOLUME_PATH/OpenVoice is empty or does not exist, cloning OpenVoice repository..."
+		echo "======= Folder $VOLUME_PATH/OpenVoice is empty or does not exist, cloning OpenVoice repository...\n"
 		git clone $OPENVOICE_REPOSITORY_URL $VOLUME_PATH/OpenVoice
+		echo "\n-e .\nFlask[async]==3.0.3\ncolorlog==6.8.2" >> $VOLUME_PATH/OpenVoice/requirements.txt
 		# Install OpenVoice v1 checkpoints
 		echo "======= Installing OpenVoice v1 checkpoints"
-		aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://myshell-public-repo-hosting.s3.amazonaws.com/openvoice/checkpoints_1226.zip -d $VOLUME_PATH/OpenVoice -o checkpoints_1226.zip
+		aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://myshell-public-repo-host.s3.amazonaws.com/openvoice/checkpoints_1226.zip -d $VOLUME_PATH/OpenVoice -o checkpoints_1226.zip
 		unzip $VOLUME_PATH/OpenVoice/checkpoints_1226.zip -d $VOLUME_PATH/OpenVoice
 		rm $VOLUME_PATH/OpenVoice/checkpoints_1226.zip
 		# Install OpenVoice v2 checkpoints
 		echo "======= Installing OpenVoice v2 checkpoints"
-		aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://myshell-public-repo-hosting.s3.amazonaws.com/openvoice/checkpoints_v2_0417.zip -d $VOLUME/OpenVoice -o checkpoints_v2_0417.zip
+		aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://myshell-public-repo-host.s3.amazonaws.com/openvoice/checkpoints_v2_0417.zip -d $VOLUME/OpenVoice -o checkpoints_v2_0417.zip
 		unzip $VOLUME_PATH/OpenVoice/checkpoints_v2_0417.zip -d $VOLUME_PATH/OpenVoice
 		rm $VOLUME_PATH/OpenVoice/checkpoints_v2_0417.zip
 		if [ -n "$USRID" ] && [ -n "$GRPID" ]; then
@@ -86,8 +93,9 @@ fi
 if [ -n "$API_REPOSITORY_URL" ]; then
  	if [ -z "$(ls -A "$VOLUME_PATH/api" 2>/dev/null)" ]; then
 		# Install API
-		echo "======= Folder $VOLUME_PATH/api is empty or does not exist, cloning API repository..."
+		echo "======= Folder $VOLUME_PATH/api is empty or does not exist, cloning API repository...\n"
 		git clone $API_REPOSITORY_URL $VOLUME_PATH/api
+		echo "\nFlask[async]==3.0.3\ncolorlog==6.8.2" >> $VOLUME_PATH/api/requirements.txt
 		cp $VOLUME_PATH/api/env.sample $VOLUME_PATH/api/.env
 		cp $VOLUME_PATH/api/tests/env.sample $VOLUME_PATH/api/tests/.env
 		if [ -n "$USRID" ] && [ -n "$GRPID" ]; then
@@ -108,6 +116,7 @@ if [ "${FIRST_RUN}" = true ]; then
 	install_openvoice_dependencies
 	# Install API dependencies
 	install_api_dependencies
+	install_nltk_download
 fi
 
 # Run command
